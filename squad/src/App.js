@@ -35,7 +35,7 @@ function App() {
 
   const aoNovoAgenteAdicionado = (agente) =>{
       console.log(agente)
-      setAgentes(...agentes, agente)
+      setAgentes([...agentes, agente])
   }
 
   return (
@@ -43,7 +43,8 @@ function App() {
       <Banner/>
       <Formulario classes={ classes.map(classes => classes.nome)} aoAgenteCadastrado={agente => aoNovoAgenteAdicionado(agente)}/>
      
-      {classes.map(classe => <Classes key={classe.nome} nome={classe.nome} corPrimaria={classe.corPrimaria} corSecundaria={classe.corSecundaria}/>)}
+      {classes.map(classe => <Classes key={classe.nome} nome={classe.nome} corPrimaria={classe.corPrimaria} corSecundaria={classe.corSecundaria}
+      agentes={agentes.filter(agente => agente.classe === classe.nome)} />)}
       
     </div>
   );
