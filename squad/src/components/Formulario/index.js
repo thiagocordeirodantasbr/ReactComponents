@@ -6,12 +6,6 @@ import './Formulario.css'
 
 const Formulario = (props) => {
 
-    const classes = [
-        'Controladores',
-        'Duelistas',
-        'Iniciadores',
-        'Sentinelas'
-    ]
 
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
@@ -37,7 +31,7 @@ const Formulario = (props) => {
                 <CampoTexto  obrigatorio={true} label="Nome"placeholder="Digite o seu nome" valor={nome} aoAlterado={valor => setNome(valor)} />
                 <CampoTexto obrigatorio={true} label="Cargo" placeholder="Digite o seu Cargo" valor={cargo} aoAlterado={valor => setCargo(valor)} />
                 <CampoTexto  obrigatorio={true} label="Imagem" placeholder="Digite a URL da imagem" valor={imagem} aoAlterado={valor => setImagem(valor)} />
-                <ListaSuspensa obrigatorio={true} label="Classes" itens={classes}  valor={classe} aoAlterado={valor => setClasse(valor)} />
+                <ListaSuspensa obrigatorio={true} label="Classes" itens={props.classes}  valor={classe} aoAlterado={valor => setClasse(valor)} />
                 <Botao>Criar Card</Botao>
             </form>
         </section>
